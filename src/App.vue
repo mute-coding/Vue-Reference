@@ -1,102 +1,124 @@
 <template>
-  <div id="pageContainer">
-    <!-- 確保名稱與組件名稱一致 -->
-    <!-- <RoomBooking /> -->
-    <div class="ItemControllerBlock" >
-        <div class="ItemControllerTitle" >
-          <p>飯店資料</p>
-        </div>
-        <div class="ItemController" >
-          <ItemController />
-        </div>
-
-    </div>
-    <div class="ItemCardBlock" >
-      <div class="ItemCardTitle" >
-          <p>房間列表</p>
+  <div class="col-sm-9">
+    <h2>房型總類</h2>
+    <hr>
+    <div class="row hotalRoom">
+      <div class="hotalRoomCard shadow p-3 mb-5 bg-body rounded col-md-3" v-for="room in roomdata" :key="room.id">
+        <hotalRoom :room="room" />
       </div>
-      
-        <ItemCard />
-       
     </div>
   </div>
 </template>
 
 <script>
-// import RoomBooking from './components/RoomBooking.vue';
-import ItemCard from './components/ItemCard';
-import ItemController from './components/ItemController'; // 確保大小寫一致
+import hotalRoom from './components/hotalRoom.vue';
 
 export default {
   name: 'App',
   components: {
-    // RoomBooking,
-    ItemCard,
-    ItemController, // 確保已在 components 中註冊
+    hotalRoom,
   },
+  data(){
+    return{
+      roomdata:[
+        {
+          id: 0,
+          name: "經濟雙人房",
+          eng: "Economy Double Room",
+          price: 7000,
+          amount: 0,
+          image: require('@/assets/room1.jpg'),
+          discount: 0.9,
+          equipment: {
+            wifi: false,
+            bathtub: true,
+            breakfast: true,
+          },
+        },
+        {
+          id: 1,
+          name: "海景三人房",
+          eng: "Sea View Triple Room",
+          price: 7800,
+          amount: 0,
+          image: require('@/assets/room2.jpg'),
+          discount: 0.8,
+          equipment: {
+            wifi: true,
+            bathtub: true,
+            breakfast: false,
+          },
+        },
+        {
+          id: 2,
+          name: "商務雙人房",
+          eng: "Business Double Room",
+          price: 5600,
+          amount: 0,
+          cover:"",
+          discount: 0.9,
+          equipment: {
+            wifi: true,
+            bathtub: false,
+            breakfast: false
+          }     
+        },
+        {
+          id: 3,
+          name: "溫泉雙人房",
+          eng: "Hot spring double Room",
+          price: 8400,
+          amount: 0,
+          cover: "",
+          discount: 0.6,
+          equipment: {
+            wifi: true,
+            bathtub: true,
+            breakfast: true
+          }
+        },
+        {
+          id: 4,
+          name: "總統套房",
+          eng: "Presidential Suite",
+          price: 23000,
+          amount: 0,
+          cover: "",
+          discount: 0.75,
+          equipment: {
+            wifi: true,
+            bathtub: true,
+            breakfast: true
+          }
+        },
+        {
+          id: 5,
+          name: "奢華四人房",
+          eng: "Luxury four Room",
+          price: 8500,
+          amount: 0,
+          cover: "",
+          discount: 0.7,
+          equipment: {
+            wifi: true,
+            bathtub: true,
+            breakfast: false
+          }
+        }
+      ]
+    }
+  }
 };
 </script>
 
 <style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-#pageContainer {
-  display: flex;
-  flex-direction: row;
-  gap: 10px; /* 設置區塊之間的間距 */
-  height: 100vh; /* 設置容器高度填滿整個窗口 */
-}
-
-.ItemCardBlock{
-   /* flex: 8; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0%;  */
-    flex: 8; /* 彈性分佈寬度 */
-  display: flex;
-  flex-direction: column; /* 改為垂直排列，方便標題與內容分離 */
-  justify-content: flex-start; /* 保證內容從上往下排列 */
-  align-items: center; /* 僅水平居中 */
-  position: relative; /* 作為子元素絕對定位的參考 */
-  padding-top: 80px; /* 適當增加內邊距，避免內容緊貼頂部 */
-  height: calc(100vh - 40px); /* 設置適合的高度，避免超出視窗 */
-}
-.ItemCardTitle{
-  position: absolute;
-  bottom:  90%;
-  right: 2%;
-  width: 75vw;
-  height: 60px;
-  border-bottom: 1px solid gray;
-
-}
-.ItemCardTitle p{
-  font-size: 24px;
-}
-
-.ItemControllerBlock {
-  flex: 2; /* 彈性分佈寬度 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.ItemControllerTitle{
-  position: absolute;
-  bottom:  90%;
-  right: 80%;
-  width: 15vw;
-  height:  60px;
-  border-bottom: 1px solid gray;
-}
-.ItemControllerTitle p{
-  font-size: 24px;
-}
-
-
-
+  .hotalRoomCard{
+    margin:0 5px ;
+  }
+  
 </style>
+
+
+
+
+
