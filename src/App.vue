@@ -3,7 +3,7 @@
     <h2>房型總類</h2>
     <hr>
     <div class="row hotalRoom">
-      <div class="hotalRoomCard shadow p-3 mb-5 bg-body rounded col-md-3" v-for="room in roomdata" :key="room.id">
+      <div class="hotalRoomCard shadow mb-5 bg-body rounded col-md-3" v-for="room in roomdata" :key="room.id">
         <hotalRoom :room="room" />
       </div>
     </div>
@@ -55,7 +55,7 @@ export default {
           eng: "Business Double Room",
           price: 5600,
           amount: 0,
-          cover:"",
+          image: require('@/assets/room3.jpg'),
           discount: 0.9,
           equipment: {
             wifi: true,
@@ -69,7 +69,7 @@ export default {
           eng: "Hot spring double Room",
           price: 8400,
           amount: 0,
-          cover: "",
+          image: require('@/assets/room4.jpg'),
           discount: 0.6,
           equipment: {
             wifi: true,
@@ -83,7 +83,7 @@ export default {
           eng: "Presidential Suite",
           price: 23000,
           amount: 0,
-          cover: "",
+          image: require('@/assets/room5.jpg'),
           discount: 0.75,
           equipment: {
             wifi: true,
@@ -97,7 +97,7 @@ export default {
           eng: "Luxury four Room",
           price: 8500,
           amount: 0,
-          cover: "",
+          image: require('@/assets/room6.jpg'),
           discount: 0.7,
           equipment: {
             wifi: true,
@@ -112,9 +112,12 @@ export default {
 </script>
 
 <style>
+.row.hotalRoom {
+  --bs-gutter-x: 0;
+}
   .hotalRoomCard{
     margin:0 5px ;
-  }
+  } 
   
 </style>
 
