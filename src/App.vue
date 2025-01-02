@@ -1,25 +1,34 @@
 <template>
-  <div class="col-sm-9">
-    <h2>房型總類</h2>
-    <hr>
-    <div class="row hotalRoom">
-      <div class="hotalRoomCard shadow mb-5 bg-body rounded col-md-3" v-for="room in roomdata" :key="room.id">
-        <hotalRoom :room="room" />
+  <div class="row">
+    <div class="col-sm-3" >
+      <edit-room v-model:hotalDiscount="hotalDiscount" />
+    </div>
+
+    <div class="col-sm-9">
+      <h2>房型總類</h2>
+      <hr>
+      <div class="row hotalRoom">
+        <div class="hotalRoomCard shadow mb-5 bg-body rounded col-md-3" v-for="room in roomdata" :key="room.id">
+          <hotalRoom :room="room" :hotalDiscount="hotalDiscount" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import EditRoom from './components/editRoom.vue';
 import hotalRoom from './components/hotalRoom.vue';
 
 export default {
   name: 'App',
   components: {
     hotalRoom,
+    EditRoom,
   },
   data(){
     return{
+      hotalDiscount: 0.9,  // 新增折扣屬性，初始值設為 0.9
       roomdata:[
         {
           id: 0,

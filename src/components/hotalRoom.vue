@@ -35,16 +35,16 @@
 <script>
 
 export default {
-  props:{
-    room : Object,
-    hotalDiscount:{
-      type:Number,
-      default: 0.9,
-    }
+  props: {
+    room: Object,
+    hotalDiscount: {
+      type: Number,
+      default: 1,
+    },
   },
- computed: {
+  computed: {
     finalPrice() {
-      return (this.room.price * this.room.discount * this.hotalDiscount);
+      return this.room.price * this.room.discount * this.hotalDiscount;
     },
     discountINF() {
       return parseFloat((this.room.discount * this.hotalDiscount * 100).toFixed(2));
