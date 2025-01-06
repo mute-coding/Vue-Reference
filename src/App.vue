@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-sm-3" >
-      <edit-room v-model:hotalDiscount="hotalDiscount" />
+      <edit-room v-model:hotalDiscount="hotalDiscount" @add-room="addRoom" />
     </div>
 
     <div class="col-sm-9">
@@ -36,7 +36,7 @@ export default {
           eng: "Economy Double Room",
           price: 7000,
           amount: 0,
-          image: require('@/assets/room1.jpg'),
+          image: './images/room1.jpg',
           discount: 0.9,
           equipment: {
             wifi: false,
@@ -50,7 +50,7 @@ export default {
           eng: "Sea View Triple Room",
           price: 7800,
           amount: 0,
-          image: require('@/assets/room2.jpg'),
+          image: './images/room2.jpg',
           discount: 0.8,
           equipment: {
             wifi: true,
@@ -64,7 +64,7 @@ export default {
           eng: "Business Double Room",
           price: 5600,
           amount: 0,
-          image: require('@/assets/room3.jpg'),
+          image: './images/room3.jpg',
           discount: 0.9,
           equipment: {
             wifi: true,
@@ -78,7 +78,7 @@ export default {
           eng: "Hot spring double Room",
           price: 8400,
           amount: 0,
-          image: require('@/assets/room4.jpg'),
+          image: './images/room4.jpg',
           discount: 0.6,
           equipment: {
             wifi: true,
@@ -92,7 +92,7 @@ export default {
           eng: "Presidential Suite",
           price: 23000,
           amount: 0,
-          image: require('@/assets/room5.jpg'),
+          image: './images/room5.jpg',
           discount: 0.75,
           equipment: {
             wifi: true,
@@ -106,7 +106,7 @@ export default {
           eng: "Luxury four Room",
           price: 8500,
           amount: 0,
-          image: require('@/assets/room6.jpg'),
+          image: './images/room6.jpg',
           discount: 0.7,
           equipment: {
             wifi: true,
@@ -116,7 +116,12 @@ export default {
         }
       ]
     }
-  }
+  },
+   methods: {
+    addRoom(newRoom) {
+      this.roomdata.push(newRoom);
+    },
+  },
 };
 </script>
 

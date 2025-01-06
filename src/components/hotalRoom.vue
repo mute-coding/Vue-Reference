@@ -1,7 +1,7 @@
 <!-- components:hotalRoom.vue -->
 <template>
   <div class="roomCard">
-    <div class="imageBlock" :style="{ backgroundImage: `url(${room.image})` }">
+    <div class="imageBlock" :style="{ backgroundImage: `url(/${room.image})` }">
       <p class="roomCname">{{ room.name }}</p>
     </div>
     <div class="roomINF">
