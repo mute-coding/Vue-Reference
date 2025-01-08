@@ -1,6 +1,8 @@
 <template>
   <div class="row">
     <div class="col-sm-3" >
+      <h2>編輯表單</h2>
+      <hr>
       <edit-room v-model:hotalDiscount="hotalDiscount" @add-room="addRoom" />
     </div>
 
@@ -126,6 +128,10 @@ export default {
 </script>
 
 <style>
+.row {
+  max-width: 100%;
+  margin: 0 auto;
+}
 .row.hotalRoom {
   --bs-gutter-x: 0;
 }

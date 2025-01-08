@@ -1,42 +1,42 @@
 <!-- components:editRoom.vue -->
 <template>
-    <div>
-        <label>全館折扣:</label>
-         <input class="hotalDiscount" type="number" v-model.number="discount"/>
+    <div class="formContainer" >
+        <label class="labelStyle" >全館折扣:</label>
+         <input class="hotalDiscount " type="number" v-model.number="discount"/>
         <h3>新增房間</h3>
         <form @submit.prevent="createRoom">
           <div>
-            <label>房間名稱:</label>
-            <input type="text" v-model="newRoom.name" required >
+            <label class="labelStyle">房間名稱:</label>
+            <input type="text"  v-model="newRoom.name" required >
           </div>
           <div>
-            <label>英文名稱:</label>
-            <input type="text" v-model="newRoom.eng" required >
+            <label class="labelStyle">英文名稱:</label>
+            <input type="text"  v-model="newRoom.eng" required >
           </div>
           <div>
-            <label>房間價格:</label>
-            <input type="number" v-model.number="newRoom.price" required >
+            <label class="labelStyle">房間價格:</label>
+            <input type="number"  v-model.number="newRoom.price" required >
           </div>
           <div>
-            <label>圖片路徑:</label>
-            <input type="text" v-model="newRoom.image" required >
+            <label class="labelStyle">圖片路徑:</label>
+            <input type="text"  v-model="newRoom.image" required >
           </div>
           <fieldset>
             <legend>設備:</legend>
-            <label>
+            <label class="checkboxBlock">
             <input type="checkbox" v-model="newRoom.equipment.wifi" />
               WiFi
             </label>
-            <label>
+            <label class="checkboxBlock">
             <input type="checkbox" v-model="newRoom.equipment.bathtub" />
               浴缸
             </label>
-            <label>
+            <label class="checkboxBlock">
             <input type="checkbox" v-model="newRoom.equipment.breakfast" />
               早餐
             </label>
           </fieldset>
-          <button type="submit">新增房間</button>
+          <button type="submit" class="btn btn-primary">新增房間</button>
         </form>
     </div>
 </template>
@@ -99,5 +99,38 @@ export default {
 };
 </script>
 <style scoped>
+.formContainer{
+  margin-top: 0.5vh ;
+   padding-left: 1vw; 
+   background-color:#dddddd;
+}
+.labelStyle{
+  font-weight: bold;
+  display: block;
+  font-size: 1vw;
+}
+.formContainer input[type=text],
+ .formContainer input[type=number]{
+    width: 80%;
+  padding: 6px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+/* .formContainer input[type=checkbox] {
+  appearance: none; 
+  width: 16px;
+  height: 16px;
+  border: 1px solid gray;
+  background-color: #fff; 
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+} */
+.formContainer .checkboxBlock{
+  margin:0 0.5vw;
 
+}
+.formContainer .btn{
+  margin:2vh 0;
+}
 </style>
